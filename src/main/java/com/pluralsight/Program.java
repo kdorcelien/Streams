@@ -31,6 +31,8 @@ public class Program {
         people.add(p9);
         people.add(p10);
 
+        //System.out.println(people);
+
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a name to search (first or last)");
         String name = scan.nextLine();
