@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        Person p1 = new Person("Karl","Marx",64);
+        Person p1 = new Person("Karl", "Marx", 64);
         Person p2 = new Person("Ada", "Lovelace", 36);
         Person p3 = new Person("Albert", "Einstein", 76);
         Person p4 = new Person("Marie", "Curie", 66);
@@ -36,13 +36,32 @@ public class Program {
         String name = scan.nextLine();
 
         List<Person> matches = new ArrayList<>();
-        for (Person peeps : people){
+        for (Person peeps : people) {
             if (peeps.getFirstName().equalsIgnoreCase(name) ||
                     peeps.getLastName().equalsIgnoreCase(name)) {
                 matches.add(peeps);
             }
-
+        }
+        if (matches.isEmpty()) {
+            System.out.println("No match found, try entering another name.");
+        } else {
+            System.out.println("Match found: ");
+            for (Person p : matches) {
+                System.out.println(p.getFirstName() + " " + p.getLastName() + " " + p.getAge());
+            }
         }
 
+        int totalAge = 0;
+        int youngest = 0;
+        int oldest = 0;
+
+        for (Person peeps : people) {
+            totalAge += peeps.getAge();
+            if (peeps.getAge() < youngest){
+                youngest = peeps.getAge();
+            }if (peeps.getAge() > oldest){
+                oldest = peeps.getAge();
+            }
+        }
     }
 }
