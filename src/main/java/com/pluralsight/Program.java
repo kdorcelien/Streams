@@ -63,5 +63,7 @@ public class Program {
                 oldest = peeps.getAge();
             }
         }
+
+        System.out.println(oldest);
     }
 }
