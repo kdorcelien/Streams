@@ -3,11 +3,12 @@ package com.pluralsight.streamsPart2;
 import com.pluralsight.streams.Person;
 
 import java.util.ArrayList;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Scanner;
 
 public class Program2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ArrayList<Person> people = getPeople();
 
         Scanner scan = new Scanner(System.in);
@@ -18,8 +19,6 @@ public class Program2 {
                 .filter(peeps -> peeps.getFirstName().equalsIgnoreCase(name) || peeps.getLastName().equalsIgnoreCase(name))
                 .peek(System.out::println)
                 .toList();
-
-
 
 
         int oldest = people.stream()
@@ -38,7 +37,12 @@ public class Program2 {
                 .average()
                 .orElse(100);
 
+        IntSummaryStatistics age = people.stream()
+                .mapToInt(Person::getAge)
+                .summaryStatistics();
 
+        System.out.println();
+        System.out.println(age.getCount());
         System.out.println(oldest);
         System.out.println(youngest);
         System.out.println(averageAge);
