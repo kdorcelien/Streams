@@ -63,7 +63,10 @@ public class Program {
                 oldest = peeps.getAge();
             }
         }
+        double avrageAge = totalAge / people.size();
 
         System.out.println(oldest);
+        System.out.println(youngest);
+        System.out.println(avrageAge);
     }
 }
