@@ -54,8 +54,8 @@ public class Program {
         }
 
         int totalAge = 0;
-        int youngest = 0;
-        int oldest = 0;
+        int youngest = 100;
+        int oldest = -1;
 
         for (Person peeps : people) {
             totalAge += peeps.getAge();
@@ -65,10 +65,10 @@ public class Program {
                 oldest = peeps.getAge();
             }
         }
-        double avrageAge = totalAge / people.size();
+        double averageAge = (double) totalAge / people.size();
 
         System.out.println(oldest);
         System.out.println(youngest);
-        System.out.println(avrageAge);
+        System.out.println(averageAge);
     }
 }
